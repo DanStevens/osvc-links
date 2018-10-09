@@ -32,6 +32,20 @@ class App extends Component {
         <ResourceGrid>
           <Resource siteInfo={siteInfo} siteInfoProp="baseUri" label="Base URI" />
           <Resource siteInfo={siteInfo} siteInfoProp="cpRoot" label="Customer Portal root" />
+          <Resource siteInfo={siteInfo} siteInfoProp="cpHome" label="Customer Portal home" />
+          <Resource siteInfo={siteInfo} siteInfoProp="cpAdmin" label="Customer Portal administration" />
+          <Resource siteInfo={siteInfo} siteInfoProp="cpAbout" label="Customer Portal about page" />
+          <Resource siteInfo={siteInfo} siteInfoProp="launchPage" label="Launch page" />
+          <Resource siteInfo={siteInfo} siteInfoProp="installer" label="ClickOnce Installer" />
+          <Resource siteInfo={siteInfo} siteInfoProp="scriptsRoot" label="Custom Scripts root" />
+          <Resource siteInfo={siteInfo} siteInfoProp="restApiRoot" label="REST API root" />
+        </ResourceGrid>
+
+        <h2>Soap URLs</h2>
+        <h3>Legacy SOAP URLs</h3>
+        <ResourceGrid>
+          <Resource siteInfo={siteInfo} siteInfoProp="connectApiWsdl" label="Connect web service WSDL" />
+          <Resource siteInfo={siteInfo} siteInfoProp="connectApiWsdl1_2" label="Connect web service endpoint (version 1.2)" />
         </ResourceGrid>
       </div>
     );

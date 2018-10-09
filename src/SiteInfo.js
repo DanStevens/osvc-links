@@ -65,6 +65,18 @@ export default class SiteInfo {
     return this.baseUri + 'app/';
   }
 
+  get cpHome() {
+    return this.cpRoot + 'home';
+  }
+
+  get cpAdmin() {
+    return this.baseUri + 'ci/admin';
+  }
+
+  get cpAbout() {
+    return this.baseUri + 'ci/about'
+  }
+
   get cfgRoot() {
     return this.baseUri + 'cgi-bin/' + this.intfName +'.cfg';
   }
@@ -77,6 +89,26 @@ export default class SiteInfo {
     return 'https://installer-' + this.siteName.replace(/_/g, '-') + '.' + this.podDomain +
     '/RightNow.Installer.application?launch=' + this.cfgRoot + '&dbname=' + this.siteName +
     '&trace=true&lang=en_GB';
+  }
+
+  get accessInterface() {
+    return this.cfgRoot + '/php/admin/session/login.php';
+  }
+
+  get scriptsRoot() {
+    return this.cfgRoot + '/php/custom/';
+  }
+
+  get restApiRoot() {
+    return this.baseUri + 'services/rest/connect'
+  }
+
+  get connectApiWsdl() {
+    return this.baseUri + 'services/soap/connect/soap?wsdl=typed';
+  }
+
+  get connectApiWsdl1_2() {
+    return this.baseUri + 'services/soap/connect/soap?wsdl=typed_v1.3';
   }
 
   isEqual(other) {
