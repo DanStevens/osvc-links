@@ -1,0 +1,6 @@
+.ResourceGrid {
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 5px;
+}

@@ -1,3 +1,4 @@
+
 export default class SiteInfo {
   constructor(siteName, intfName, vhost = "", podDomain = "custhelp.com") {
     this._siteName = siteName;
@@ -52,4 +53,27 @@ export default class SiteInfo {
   get hostName() {
     return this.vhost || this.intfNameDashed + this.suffixDashed + '.' + this.podDomain;
   }
+
+  get baseUri() {
+    return 'https://' + this.hostName + '/';
+  }
+
+  get cpRoot() {
+    return this.baseUri + 'app/';
+  }
+
+  get cfgRoot() {
+    return this.baseUri + 'cgi-bin/' + this.intfName +'.cfg';
+  }
+
+  get launchPage() {
+    return this.cfgRoot + '/php/admin/launch.php';
+  }
+
+  get installer() {
+    return 'https://installer-' + this.siteName.replace(/_/g, '-') + '.' + this.podDomain +
+    '/RightNow.Installer.application?launch=' + this.cfgRoot + '&dbname=' + this.siteName +
+    '&trace=true&lang=en_GB';
+  }
+  
 }
