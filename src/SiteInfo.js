@@ -40,14 +40,17 @@ export default class SiteInfo {
   }
 
   get suffix() {
-    return /__.+$/.exec(this.siteName)[0] || null;
+    let result = /__.+$/.exec(this.siteName);
+    return result ? result[0] : '';
   }
   get suffixDashed() {
-    return this.suffix.replace(/_/g, '-');
+    let suffix = this.suffix;
+    return suffix ? suffix.replace(/_/g, '-') : '';
   }
 
   get intfNameDashed() {
-    return this.intfName.replace(/_/g, '-');
+    let intfName = this.intfName;
+    return intfName ? intfName.replace(/_/g, '-') : '';
   }
 
   get hostName() {
@@ -74,6 +77,19 @@ export default class SiteInfo {
     return 'https://installer-' + this.siteName.replace(/_/g, '-') + '.' + this.podDomain +
     '/RightNow.Installer.application?launch=' + this.cfgRoot + '&dbname=' + this.siteName +
     '&trace=true&lang=en_GB';
+  }
+
+  isEqual(other) {
+    return other === this || (
+      this.siteName === other.siteName &&
+      this.intfName === other.intfName &&
+      this.vhost === other.vhost &&
+      this.podDomain === other.podDomain
+    );
+  }
+
+  copy() {
+    return new SiteInfo(this.siteName, this.intfName, this.vhost, this.podDomain);
   }
   
 }
