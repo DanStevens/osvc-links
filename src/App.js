@@ -3,6 +3,7 @@ import './App.css';
 import SiteInfo from './SiteInfo';
 import SiteInfoForm from './SiteInfoForm';
 import { ResourceGrid, Resource } from './Resources';
+import appInfo from '../package.json';
 
 class App extends Component {
   constructor(props) {
@@ -63,7 +64,16 @@ class App extends Component {
         <ResourceGrid>
           <Resource siteInfo={siteInfo} siteInfoProp="launchArgs" label="Launch command line arguments" />
           <Resource siteInfo={siteInfo} siteInfoProp="cpAdminRegex" label="Regex for matching CP Admin URLs" />
+          <Resource siteInfo={siteInfo} siteInfoProp="newConnectSessionCmdlet" label="New-ConnectSession PS Cmdlet" />
         </ResourceGrid>
+
+        <h2>Knowledge Advanced REST API</h2>
+        <ResourceGrid>
+          <Resource siteInfo={siteInfo} siteInfoProp="kaContentApiRoot" label="Content API Root URI" />
+          <Resource siteInfo={siteInfo} siteInfoProp="kaSearchApiRoot" label="Search API Root URI" />
+        </ResourceGrid>
+
+        <div className="App-info">{appInfo.name} {appInfo.version}</div>
       </div>
     );
   }

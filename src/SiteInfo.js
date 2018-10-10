@@ -1,5 +1,5 @@
 function escapeRegExp(str) {
-  return str.replace(/[[\]/\{}()*+?.\\^$|]/g, "\\$&");
+  return str.replace(/[[\]/{}()*+?.\\^$|]/g, "\\$&");
 }
 
 export default class SiteInfo {
@@ -145,6 +145,19 @@ export default class SiteInfo {
   get cpAdminRegex() {
     return `https:\\/\\/${this.vhost ? escapeRegExp(this.vhost) : this.intfNameDashed}` +
            `(--[\\w-]*)?\\.${escapeRegExp(this.podDomain)}\\/ci\\/admin.*`;
+  }
+
+  get newConnectSessionCmdlet() {
+    return `New-ConnectSession (intf ${this.intfName} ${this.siteName}` +
+           `${this.vhost ? ` -HostName ${this.vhost}` : ''})`;
+  }
+
+  get kaContentApiRoot() {
+    return `https://${this.intfNameDashed}${this.suffixDashed}-irs.${this.podDomain}/km`;
+  }
+
+  get kaSearchApiRoot() {
+    return `https://${this.intfNameDashed}${this.suffixDashed}-qp.${this.podDomain}/srt`;
   }
 
   isEqual(other) {

@@ -30,3 +30,8 @@
     transform: rotate(360deg);
   }
 }
+
+.App-info {
+  margin-top: calc(10px + 2vmin);
+  font-size: smaller;
+}
