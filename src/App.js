@@ -61,7 +61,8 @@ class App extends Component {
 
         <h2>Other Resources</h2>
         <ResourceGrid>
-          
+          <Resource siteInfo={siteInfo} siteInfoProp="launchArgs" label="Launch command line arguments" />
+          <Resource siteInfo={siteInfo} siteInfoProp="cpAdminRegex" label="Regex for matching CP Admin URLs" />
         </ResourceGrid>
       </div>
     );
