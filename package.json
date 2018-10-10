@@ -15,7 +15,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -r https://github.com/DanStevens/osvc-links.git -u 'Dan Stevens <dan.stevens@oracle.com>'"
   },
   "eslintConfig": {
     "extends": "react-app"
