@@ -42,10 +42,26 @@ class App extends Component {
         </ResourceGrid>
 
         <h2>Soap URLs</h2>
-        <h3>Legacy SOAP URLs</h3>
+        
+        <h3>August 2017+ SOAP URLs</h3>
         <ResourceGrid>
           <Resource siteInfo={siteInfo} siteInfoProp="connectApiWsdl" label="Connect web service WSDL" />
-          <Resource siteInfo={siteInfo} siteInfoProp="connectApiWsdl1_2" label="Connect web service endpoint (version 1.2)" />
+          <Resource siteInfo={siteInfo} siteInfoProp="connectApiWsdl1_2" label="Connect web service WSDL (version 1.2)" />
+          <Resource siteInfo={siteInfo} siteInfoProp="kfApiWsdl" label="Knowledge Foundation web service WSDL" />
+          <Resource siteInfo={siteInfo} siteInfoProp="chatApiWsdl" label="Chat web service WSDL" />
+        </ResourceGrid>
+        
+        <h3>Legacy SOAP URLs</h3>
+        <ResourceGrid>
+          <Resource siteInfo={siteInfo} siteInfoProp="legacyConnectApiWsdl" label="Connect web service WSDL" />
+          <Resource siteInfo={siteInfo} siteInfoProp="legacyConnectApiWsdl1_2" label="Connect web service WSDL (version 1.2)" />
+          <Resource siteInfo={siteInfo} siteInfoProp="legacyKfApiWsdl" label="Knowledge Foundation web service WSDL" />
+          <Resource siteInfo={siteInfo} siteInfoProp="legacyChatApiWsdl" label="Chat web service WSDL" />
+        </ResourceGrid>
+
+        <h2>Other Resources</h2>
+        <ResourceGrid>
+          
         </ResourceGrid>
       </div>
     );

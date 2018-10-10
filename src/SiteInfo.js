@@ -1,3 +1,6 @@
+function escapeRegExp(str) {
+  return str.replace(/[\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
 
 export default class SiteInfo {
   constructor(siteName, intfName, vhost = "", podDomain = "custhelp.com") {
@@ -58,57 +61,90 @@ export default class SiteInfo {
   }
 
   get baseUri() {
-    return 'https://' + this.hostName + '/';
+    return `https://${this.hostName}/`;
   }
 
   get cpRoot() {
-    return this.baseUri + 'app/';
+    return `${this.baseUri}app/`;
   }
 
   get cpHome() {
-    return this.cpRoot + 'home';
+    return `${this.cpRoot}home`;
   }
 
   get cpAdmin() {
-    return this.baseUri + 'ci/admin';
+    return `${this.baseUri}ci/admin`;
   }
 
   get cpAbout() {
-    return this.baseUri + 'ci/about'
+    return `${this.baseUri}ci/about`;
   }
 
   get cfgRoot() {
-    return this.baseUri + 'cgi-bin/' + this.intfName +'.cfg';
+    return `${this.baseUri}cgi-bin/${this.intfName}.cfg`;
   }
 
   get launchPage() {
-    return this.cfgRoot + '/php/admin/launch.php';
+    return `${this.cfgRoot}/php/admin/launch.php`;
   }
 
   get installer() {
-    return 'https://installer-' + this.siteName.replace(/_/g, '-') + '.' + this.podDomain +
-    '/RightNow.Installer.application?launch=' + this.cfgRoot + '&dbname=' + this.siteName +
-    '&trace=true&lang=en_GB';
+    return `https://installer-${this.siteName.replace(/_/g, '-')}.${this.podDomain}` +
+      `/RightNow.Installer.application?launch=${this.cfgRoot}&dbname=${this.siteName}` +
+      '&trace=true&lang=en_GB';
   }
 
   get accessInterface() {
-    return this.cfgRoot + '/php/admin/session/login.php';
+    return `${this.cfgRoot}/php/admin/session/login.php`;
   }
 
   get scriptsRoot() {
-    return this.cfgRoot + '/php/custom/';
+    return `${this.cfgRoot}/php/custom/`;
   }
 
   get restApiRoot() {
-    return this.baseUri + 'services/rest/connect'
+    return `${this.baseUri}services/rest/connect`;
   }
 
   get connectApiWsdl() {
-    return this.baseUri + 'services/soap/connect/soap?wsdl=typed';
+    return `${this.baseUri}services/soap/connect/soap?wsdl=typed`;
   }
 
   get connectApiWsdl1_2() {
-    return this.baseUri + 'services/soap/connect/soap?wsdl=typed_v1.3';
+    return `${this.baseUri}services/soap/connect/soap?wsdl=typed_v1.2`;
+  }
+
+  get kfApiWsdl() {
+    return `${this.baseUri}services/soap/connect/kf_soap?wsdl`;
+  }
+
+  get chatApiWsdl() {
+    return `${this.baseUri}services/soap/connect/chat_soap?wsdl`;
+  }
+
+  get legacyConnectApiWsdl() {
+    return `${this.cfgRoot}/services/soap?wsdl=typed`;
+  }
+
+  get legacyConnectApiWsdl1_2() {
+    return `${this.cfgRoot}/services/soap?wsdl=typed_v1.2`;
+  }
+
+  get legacyKfApiWsdl() {
+    return `${this.cfgRoot}/services/kf_soap?wsdl`;
+  }
+
+  get legacyChatApiWsdl() {
+    return `${this.cfgRoot}/services/chat_soap?wsdl`;
+  }
+
+  get launchArgs() {
+    return `launch=${this.cfgRoot} dbname=${this.siteName} isNetworkDeployed=true`;
+  }
+
+  get cpAdminRegex() {
+    return `https:\\/\\/${this.vhost ? escapeRegExp(this.vhost) : this.intfNameDashed}` +
+           `(--[\\w-]*)?\\.${escapeRegExp(this.podDomain)}\\/ci\\/admin.*`;
   }
 
   isEqual(other) {
