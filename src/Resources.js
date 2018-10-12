@@ -1,5 +1,6 @@
 import React from 'react';
 import './Resources.css';
+import isUrl from 'is-url';
 
 export function ResourceGrid(props) {
   return (
@@ -19,15 +20,31 @@ export function Resource(props) {
     resource = props.siteInfo[props.siteInfoProp];
   }
   return (
-    <ResourceCore label={props.label} resource={resource} />
+    <div className="Resource">
+      <ResourceCore label={props.label} resource={resource} />
+    </div>
   );
 }
 
-function ResourceCore(props) {
-  return (
-    <>
-      <label className="Resource-Label">{props.label}</label>
-      <input className="Resource-Input" readOnly type="text" value={props.resource}/>
-    </>
-  );
+class ResourceCore extends React.Component {
+  constructor(props) {
+    super(props);
+    this.inputOnFocus = this.inputOnFocus.bind(this);
+  }
+
+  inputOnFocus(e) {
+    e.target.select();
+  }
+  
+  render() {
+    const labelContent = isUrl(this.props.resource) ?
+      <a href={this.props.resource} target="_blank" rel="noopener noreferrer">{this.props.label}</a> :
+      <>{this.props.label}</>;
+    return (
+      <>
+        <label className="Resource-Label">{labelContent}</label>
+        <input className="Resource-Input" readOnly type="text" value={this.props.resource} onFocus={this.inputOnFocus}/>
+      </>
+    );
+  }
 }
