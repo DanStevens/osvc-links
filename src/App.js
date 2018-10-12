@@ -4,13 +4,18 @@ import SiteInfo from './SiteInfo';
 import SiteInfoForm from './SiteInfoForm';
 import { ResourceGrid, Resource } from './Resources';
 import appInfo from '../package.json';
+import { getUrlParameterByName } from './utils';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
+    const siteName = getUrlParameterByName('site') || 'example__pro';
+    const intfName = getUrlParameterByName('intf') || 'example_en';
+    const vhost = getUrlParameterByName('host') || '';
+
     this.state = {
-      siteInfo: new SiteInfo('example__pro', 'example_en'),
+      siteInfo: new SiteInfo(siteName, intfName, vhost),
     };
   };
 
@@ -40,6 +45,7 @@ class App extends Component {
           <Resource siteInfo={siteInfo} siteInfoProp="installer" label="ClickOnce Installer" />
           <Resource siteInfo={siteInfo} siteInfoProp="scriptsRoot" label="Custom Scripts root" />
           <Resource siteInfo={siteInfo} siteInfoProp="restApiRoot" label="REST API root" />
+          <Resource siteInfo={siteInfo} siteInfoProp="osvcLinks" label="OSvC Links" />
         </ResourceGrid>
 
         <h2>Soap URLs</h2>
