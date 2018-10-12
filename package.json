@@ -5,6 +5,7 @@
   "homepage": "http://danstevens.github.io/osvc-links",
   "author": "Dan Stevens <dan.stevens@oracle.com>",
   "dependencies": {
+    "is-url": "^1.2.4",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.4"
@@ -15,7 +16,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://github.com/DanStevens/osvc-links.git -u 'Dan Stevens <dan.stevens@oracle.com>'"
+    "deploy": "gh-pages -d build -r https://github.com/DanStevens/osvc-links.git"
   },
   "eslintConfig": {
     "extends": "react-app"

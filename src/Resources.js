@@ -1,5 +1,6 @@
 import React from 'react';
 import './Resources.css';
+import isUrl from 'is-url';
 
 export function ResourceGrid(props) {
   return (
@@ -24,9 +25,12 @@ export function Resource(props) {
 }
 
 function ResourceCore(props) {
+  const labelContent = isUrl(props.resource) ?
+    <a href={props.resource} target="_blank" rel="noopener noreferrer">{props.label}</a> :
+    <>{props.label}</>;
   return (
     <>
-      <label className="Resource-Label">{props.label}</label>
+      <label className="Resource-Label">{labelContent}</label>
       <input className="Resource-Input" readOnly type="text" value={props.resource}/>
     </>
   );
