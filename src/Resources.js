@@ -10,7 +10,14 @@ export function ResourceGrid(props) {
 }
 
 export function Resource(props) {
-  let resource = props.siteInfo[props.siteInfoProp];
+  let resource;
+  // Special 'siteInfoProp' for linking to this app using the give site info
+  if (props.siteInfoProp === 'osvcLinks') {
+    resource = `${window.location.href.split('?')[0]}?site=${props.siteInfo.siteName}` +
+               `&intf=${props.siteInfo.intfName}&host=${props.siteInfo.vhost}`;
+  } else {
+    resource = props.siteInfo[props.siteInfoProp];
+  }
   return (
     <ResourceCore label={props.label} resource={resource} />
   );

@@ -45,6 +45,7 @@ class App extends Component {
           <Resource siteInfo={siteInfo} siteInfoProp="installer" label="ClickOnce Installer" />
           <Resource siteInfo={siteInfo} siteInfoProp="scriptsRoot" label="Custom Scripts root" />
           <Resource siteInfo={siteInfo} siteInfoProp="restApiRoot" label="REST API root" />
+          <Resource siteInfo={siteInfo} siteInfoProp="osvcLinks" label="OSvC Links" />
         </ResourceGrid>
 
         <h2>Soap URLs</h2>
