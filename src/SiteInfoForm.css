@@ -10,7 +10,6 @@
 .SiteInfoForm {
   font-size: smaller;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: left;
 }
