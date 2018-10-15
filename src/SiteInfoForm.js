@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SiteInfo from './SiteInfo';
 import './SiteInfoForm.css';
+import PodDomainSelect from './PodDomainSelect';
 
 export default class SiteInfoForm extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class SiteInfoForm extends Component {
     this.siteNameChanged = this.siteNameChanged.bind(this);
     this.intfNameChanged = this.intfNameChanged.bind(this);
     this.vhostChanged = this.vhostChanged.bind(this);
+    this.podDomainChanged = this.podDomainChanged.bind(this);
   }
 
   siteNameChanged(e) {
@@ -36,6 +38,12 @@ export default class SiteInfoForm extends Component {
     this.setState({
       vhost: e.target.value
     }, () => this.props.siteInfoChanged('vhost', this.state.vhost));
+  }
+
+  podDomainChanged(e) {
+    this.setState({
+      podDomain: e.state.podDomain
+    }, () => this.props.siteInfoChanged('podDomain', this.state.podDomain));
   }
 
   // componentDidUpdate(prevProps, prevState) {
@@ -66,6 +74,8 @@ export default class SiteInfoForm extends Component {
           <label>Virtual Hostname (blank for none):</label>
           <input onChange={this.vhostChanged} defaultValue={this.state.vhost} />
         </div>
+
+        <PodDomainSelect onChange={this.podDomainChanged} defaultValue={this.state.podDomain} />
       </div>
     );
   }
