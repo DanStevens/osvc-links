@@ -16,3 +16,8 @@
 .Resource-Input {
   flex-grow: 1;
 }
+
+.Resource-CopyLink {
+  margin: auto 0 auto 3px;
+  font-size: smaller;
+}

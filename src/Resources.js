@@ -29,11 +29,18 @@ export function Resource(props) {
 class ResourceCore extends React.Component {
   constructor(props) {
     super(props);
+    this.textInput = React.createRef();
     this.inputOnFocus = this.inputOnFocus.bind(this);
+    this.copyRequested = this.copyRequested.bind(this);
   }
 
   inputOnFocus(e) {
     e.target.select();
+  }
+
+  copyRequested() {
+    this.textInput.current.select();
+    document.execCommand("copy");
   }
   
   render() {
@@ -43,7 +50,9 @@ class ResourceCore extends React.Component {
     return (
       <>
         <label className="Resource-Label">{labelContent}</label>
-        <input className="Resource-Input" readOnly type="text" value={this.props.resource} onFocus={this.inputOnFocus}/>
+        <input className="Resource-Input" readOnly type="text" value={this.props.resource} onFocus={this.inputOnFocus}
+               ref={this.textInput}/>
+        <a href="javascript:void" className="Resource-CopyLink" onClick={this.copyRequested} title="Copy to clipboard">Copy</a>
       </>
     );
   }
