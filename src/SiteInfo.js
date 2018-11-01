@@ -143,8 +143,9 @@ export default class SiteInfo {
   }
 
   get cpAdminRegex() {
-    return `https:\\/\\/${this.vhost ? escapeRegExp(this.vhost) : this.intfNameDashed}` +
-           `(--[\\w-]*)?\\.${escapeRegExp(this.podDomain)}\\/ci\\/admin.*`;
+    const host = this.vhost ? escapeRegExp(this.vhost) :
+      `${this.intfNameDashed}(--[\\w-]*)?\\.${escapeRegExp(this.podDomain)}`;
+    return `https:\\/\\/${host}\\/ci\\/admin.*`;
   }
 
   get newConnectSessionCmdlet() {
