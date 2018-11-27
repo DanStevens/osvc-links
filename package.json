@@ -16,7 +16,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://github.com/DanStevens/osvc-links.git"
+    "deploy": "gh-pages -d build -r https://github.com/DanStevens/osvc-links.git",
+    "gh-pages-clean": "gh-pages-clean",
+    "gh-pages-debug": "node --version && set NODE_DEBUG=net,gh-pages && echo %NODE_DEBUG%"
   },
   "eslintConfig": {
     "extends": "react-app"
