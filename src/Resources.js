@@ -38,7 +38,8 @@ class ResourceCore extends React.Component {
     e.target.select();
   }
 
-  copyRequested() {
+  copyRequested(e) {
+    e.preventDefault();
     this.textInput.current.select();
     document.execCommand("copy");
   }
@@ -52,7 +53,7 @@ class ResourceCore extends React.Component {
         <label className="Resource-Label">{labelContent}</label>
         <input className="Resource-Input" readOnly type="text" value={this.props.resource} onFocus={this.inputOnFocus}
                ref={this.textInput}/>
-        <a href="javascript:void" className="Resource-CopyLink" onClick={this.copyRequested} title="Copy to clipboard">Copy</a>
+        <a href="#" className="Resource-CopyLink" onClick={this.copyRequested} title="Copy to clipboard">Copy</a>
       </>
     );
   }
