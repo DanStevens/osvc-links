@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/osvc-links/static/js/runtime~main.733bada6.js"
   },
   {
-    "revision": "a7629c184a6755715b0b",
-    "url": "/osvc-links/static/js/main.a7629c18.chunk.js"
+    "revision": "df41c88af33ed5cf718b",
+    "url": "/osvc-links/static/js/main.df41c88a.chunk.js"
   },
   {
     "revision": "2c17bf77b12ee99e7201",
     "url": "/osvc-links/static/js/1.2c17bf77.chunk.js"
   },
   {
-    "revision": "a7629c184a6755715b0b",
-    "url": "/osvc-links/static/css/main.33ed7a64.chunk.css"
+    "revision": "df41c88af33ed5cf718b",
+    "url": "/osvc-links/static/css/main.138d445d.chunk.css"
   },
   {
-    "revision": "fefa5e4f7796822145afc3d9d7b4be33",
+    "revision": "7d2b4ca1cd8dd6b97fe0f49851dd3d96",
     "url": "/osvc-links/index.html"
   }
 ];
