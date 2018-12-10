@@ -71,6 +71,7 @@ class App extends Component {
           <Resource siteInfo={siteInfo} siteInfoProp="launchArgs" label="Launch command line arguments" />
           <Resource siteInfo={siteInfo} siteInfoProp="cpAdminRegex" label="Regex for matching CP Admin URLs" />
           <Resource siteInfo={siteInfo} siteInfoProp="newConnectSessionCmdlet" label="New-ConnectSession PS Cmdlet" />
+          <Resource siteInfo={siteInfo} siteInfoProp="gitRepoSsh" label="Git Repo (SSH)" />
         </ResourceGrid>
 
         <h2>Knowledge Advanced REST API</h2>

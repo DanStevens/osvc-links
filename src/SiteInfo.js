@@ -161,6 +161,14 @@ export default class SiteInfo {
     return `https://${this.intfNameDashed}${this.suffixDashed}-qp.${this.podDomain}/srt`;
   }
 
+  get siteNameWithoutSuffix() {
+    return this.siteName.replace(this.suffix, '');
+  }
+
+  get gitRepoSsh() {
+    return `git@src.rightnow.com:${this.siteNameWithoutSuffix}.git`;
+  }
+
   isEqual(other) {
     return other === this || (
       this.siteName === other.siteName &&
