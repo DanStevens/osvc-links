@@ -8,6 +8,7 @@ export default class SiteInfo {
     this._intfName = intfName;
     this._vhost = vhost;
     this._podDomain = podDomain;
+    this._useInternalIdp = true;
   }
 
   get siteName() {
@@ -40,6 +41,14 @@ export default class SiteInfo {
 
   set podDomain(value) {
     this._podDomain = value.trim().toLowerCase();
+  }
+
+  get useInternalIdp() {
+    return this._useInternalIdp;
+  }
+
+  set useInternalIdp(value) {
+    this._useInternalIdp = Boolean(value);
   }
 
   get suffix() {
@@ -91,7 +100,7 @@ export default class SiteInfo {
   get installer() {
     return `https://installer-${this.siteName.replace(/_/g, '-')}.${this.podDomain}` +
       `/RightNow.Installer.application?launch=${this.cfgRoot}&dbname=${this.siteName}` +
-      '&trace=true&lang=en_GB';
+      `&trace=true&lang=en_GB&useInternalIdp=${this.useInternalIdp}`;
   }
 
   get accessInterface() {
