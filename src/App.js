@@ -46,6 +46,16 @@ class App extends Component {
           <Resource siteInfo={siteInfo} siteInfoProp="scriptsRoot" label="Custom Scripts root" />
           <Resource siteInfo={siteInfo} siteInfoProp="restApiRoot" label="REST API root" />
           <Resource siteInfo={siteInfo} siteInfoProp="osvcLinks" label="OSvC Links" />
+          <Resource siteInfo={siteInfo} siteInfoProp="buiRoot" label="Agent Browser UI" />
+          <Resource siteInfo={siteInfo} siteInfoProp="buiExtensionLoader" label="Agent Browser UI Extension Loader" />
+        </ResourceGrid>
+
+        <h2>Developer Cloud Service Git Repository</h2>
+        <ResourceGrid>
+          <Resource siteInfo={siteInfo} siteInfoProp="dcsProjectHome" label="Project Home" />
+          <Resource siteInfo={siteInfo} siteInfoProp="dcsMasterRoot" label="Master Branch Root" />
+          <Resource siteInfo={siteInfo} siteInfoProp="dcsSshOrigin" label="Clone with SSH" />
+          <Resource siteInfo={siteInfo} siteInfoProp="dcsHttpsOrigin" label="Clone with HTTPS" />
         </ResourceGrid>
 
         <h2>Soap URLs</h2>

@@ -115,6 +115,14 @@ export default class SiteInfo {
     return `${this.baseUri}services/rest/connect`;
   }
 
+  get buiRoot() {
+    return `${this.baseUri}AgentWeb`;
+  }
+
+  get buiExtensionLoader() {
+    return `${this.buiRoot}/module/extensibility/js/client/core/extension_loader.js`;
+  }
+
   get connectApiWsdl() {
     return `${this.baseUri}services/soap/connect/soap?wsdl=typed`;
   }
@@ -176,6 +184,34 @@ export default class SiteInfo {
 
   get gitRepoSsh() {
     return `git@src.rightnow.com:${this.siteNameWithoutSuffix}.git`;
+  }
+
+  get siteAlphaGroup() {
+    let firstChar = this.siteNameWithoutSuffix.charAt(0).toLowerCase();
+    if (firstChar >= 'a' && firstChar <= 'm')
+      return 'a-m';
+    else if (firstChar >= 'n' && firstChar <= 'z')
+      return 'n-z';
+    else
+      return null;
+  }
+
+  get dcsProjectHome() {
+    return "https://alm.oraclecorp.com/naac/#projects/ocs-commercial-sites-" + this.siteAlphaGroup;
+  }
+
+  get dcsMasterRoot() {
+    return `${this.dcsProjectHome}/scm/${this.siteNameWithoutSuffix}.git/tree?revision=master`;
+  }
+
+  get dcsSshOrigin() {
+    return "ssh://dan.stevens%40oracle.com@alm.oraclecorp.com:2222/naac_ocs-commercial-sites-" + this.siteAlphaGroup +
+           `_21750/${this.siteNameWithoutSuffix}.git`;
+  }
+
+  get dcsHttpsOrigin() {
+    return "https://dan.stevens%40oracle.com@alm.oraclecorp.com/naac/s/naac_ocs-commercial-sites-" + this.siteAlphaGroup +
+           `_21750/scm/${this.siteNameWithoutSuffix}.git`
   }
 
   isEqual(other) {
